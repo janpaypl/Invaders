@@ -1,4 +1,5 @@
 import java.awt.Graphics2D;
+import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 
 
@@ -8,6 +9,7 @@ public class Actor {
 	protected String spriteName;
 	protected Stage stage;
 	protected SpriteCache spriteCache;
+	protected boolean markedForRemoval;
 	
 	public Actor(Stage stage) {
 		this.stage = stage;
@@ -40,4 +42,23 @@ public void setHeight(int i) {height = i; }
 public void setWidth(int i) { width = i; }
 	
 public void act() { }
+
+
+public void remove() {
+	markedForRemoval = true;
+	}
+
+
+public boolean isMarkedForRemoval() {
+	return markedForRemoval;
+}
+
+public Rectangle getBounds() {
+	return new Rectangle(x,y,width,height);
+}
+
+public void collision(Actor a) {
+	
+}
+
 }
