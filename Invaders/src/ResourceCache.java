@@ -3,10 +3,10 @@ import java.util.HashMap;
 
 public abstract class ResourceCache {
 	
-	protected HashMap resources;
+	protected HashMap<String, Object> resources;
 	
 	public ResourceCache() {
-		resources = new HashMap();
+		resources = new HashMap<String, Object>();
 	}
 	
 	protected Object loadResource(String name) {

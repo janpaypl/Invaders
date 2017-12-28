@@ -10,7 +10,7 @@ public class Bomb extends Actor {
 	public static final int DOWN =6;
 	public static final int DOWN_RIGHT =7;
 	
-	protected static final int BOMB_SPEED =20;
+	protected static final int BOMB_SPEED =8;
 	protected int vx,vy;
 	
 

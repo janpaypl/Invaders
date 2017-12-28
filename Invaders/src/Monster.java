@@ -9,7 +9,7 @@ public class Monster extends Actor {
 
 		public void act() {
 			x+=vx;
-			if (x < 0 || x > Stage.SZEROKOSC-54)
+			if (x < 0 || x > Stage.SZEROKOSC)
 				vx = -vx;
 			
 			if (Math.random()< FIRING_FREQUENCY)
@@ -38,7 +38,7 @@ public class Monster extends Actor {
 		public void spawn() {
 			Monster m = new Monster(stage);
 			m.setX((int) (Math.random()*Stage.SZEROKOSC));
-			m.setY( (int) (Math.random()*stage.WYSOKOSC_GRY/2));
+			m.setY( (int) (Math.random()*Stage.WYSOKOSC_GRY/2));
 			m.setVx( (int)(Math.random()*20-10)+1);
 			stage.addActor(m);
 		}

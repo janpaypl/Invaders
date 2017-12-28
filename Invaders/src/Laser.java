@@ -9,12 +9,7 @@ public class Laser extends Actor{
 		setSpriteName("laserr.png");
 	//	setFrameSpeed(10);
 	}
-	
-	
-	
 
-
-	
 	
 	public void act() {
 		super.act();

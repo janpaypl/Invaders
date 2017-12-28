@@ -10,25 +10,12 @@ import java.util.HashMap;
 import javax.imageio.ImageIO;
 
 public class SpriteCache extends ResourceCache implements ImageObserver{
-	public HashMap sprites;
+	public HashMap<String, Object> sprites;
 	
 	public SpriteCache() {
-		sprites = new HashMap();
+		sprites = new HashMap<String, Object>();
 		}
 
-	private BufferedImage loadImage(String sciezka) {
-		URL url=null;
-		try {
-			url = getClass().getClassLoader().getResource(sciezka);
-			return ImageIO.read(url);
-		} catch (Exception e) {
-			System.out.println("Przy otwieraniu " + sciezka +" jako " + url);
-			System.out.println("Wystapil blad : "+e.getClass().getName()+" "+e.getMessage());
-			System.exit(0);
-			return null;
-		}
-	}
-	
 	public BufferedImage getSprite(String name) {
 		BufferedImage loaded = (BufferedImage)getResource("img/"+name);
 		BufferedImage compatibile = createCompatibile(loaded.getWidth(), loaded.getHeight(), Transparency.BITMASK);

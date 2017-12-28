@@ -1,10 +1,5 @@
 import java.applet.Applet;
 import java.applet.AudioClip;
-import java.awt.GraphicsConfiguration;
-import java.awt.GraphicsEnvironment;
-import java.awt.Image;
-import java.awt.image.BufferedImage;
-import java.awt.image.ImageObserver;
 import java.net.URL;
 
 public class SoundCache extends ResourceCache  {
@@ -39,10 +34,5 @@ public class SoundCache extends ResourceCache  {
 		
 	}
 
-	
-	
-	
-	
-	
 	
 }

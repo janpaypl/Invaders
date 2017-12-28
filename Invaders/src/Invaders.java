@@ -5,7 +5,6 @@ import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.WindowAdapter;
@@ -21,15 +20,17 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
 public class Invaders extends Canvas implements Stage,KeyListener{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public long usedTime;
 	public BufferStrategy strategia;
 	private SpriteCache spriteCache;
-	private ArrayList actors;
+	private ArrayList<Actor> actors;
 	private Player player;
 	private boolean gameEnded=false;
-	private BufferedImage ocean;
 	private SoundCache soundCache;
-	private int t;
 	private BufferedImage background, backgroundTile;
 	private int backgroundY;
 	
@@ -68,14 +69,14 @@ public class Invaders extends Canvas implements Stage,KeyListener{
 	}
 	
 	public void initWorld() {
-		actors = new ArrayList();
+		actors = new ArrayList<Actor>();
 		for (int i = 0; i < 20; i++){
 			Monster m = new Monster(this);
 			m.setX( (int)(Math.random()*Stage.SZEROKOSC+2) );
 			if (m.getX() < 0) m.setX(1);
 			if (m.getX() >746) m.setX(745);
-			m.setY( i*10 );
-			m.setVx( (int)(Math.random()*3)*3+1 );
+			m.setY( i*20 );
+			m.setVx( (int)(Math.random()*2)+1 );
 			actors.add(m);
 		}
 		player = new Player(this);
@@ -127,10 +128,8 @@ public class Invaders extends Canvas implements Stage,KeyListener{
 	
 	public void game() {
 		usedTime=1000;
-		t=0;
 		initWorld();
 		while (isVisible() && !gameEnded) {
-			t++;
 			long startTime = System.currentTimeMillis();
 			backgroundY--;
 			if (backgroundY <0 )

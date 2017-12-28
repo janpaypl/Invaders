@@ -1,7 +1,7 @@
 
 public class Bullet extends Actor {
 	
-	protected static final int BULLET_SPEED = 18;
+	protected static final int BULLET_SPEED = 14;
 	
 	public Bullet(Stage stage) {
 		super(stage);
